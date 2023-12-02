@@ -1,0 +1,16 @@
+{
+  "name": "typescript",
+  "version": "1.0.0",
+  "description": "Typescript training",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Moose Dev",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "ts-node": "^10.9.1"
+  }
+}
