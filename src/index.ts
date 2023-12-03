@@ -1,25 +1,5 @@
-type Base = 'Vanilla' | 'Chocolete' | 'Coffee';
-type Topping = 'nuts' | 'raisins' | 'syrup';
+import Langchain_1 from './modules/Langchain_1.js';
 
-class IceCream {
-  title: string;
-  price: number;
-  base: Base = 'Coffee';
-  toppings: string[] = [];
-
-  constructor(title: string, price: number) {
-    this.price = price;
-    this.title = title;
-  }
-
-  addTopings = (topping: Topping) => {
-    this.toppings.push(topping);
-  };
-}
-
-const ice = new IceCream('Sunday Special', 12.99);
-
-ice.addTopings('nuts');
-ice.addTopings('raisins');
-
-console.log(ice);
+// Instantiate the class and call the main method
+const langchain = new Langchain_1();
+langchain.main('What is the capital of spain?');
