@@ -1,14 +1,19 @@
-import CSVWriter from "./modules/CSVWriter.js";
+import { empWriter } from "./data-layer/EmployeeWriter.js";
+import { paymentWriter } from "./data-layer/PaymentWriter.js";
 
-const writer = new CSVWriter(["id", "amount", "to", "notes"]);
-
-writer.addRows([
-  { id: 4, amount: 40, to: "supaman", notes: "this is for pot buy" },
-  { id: 5, amount: 82, to: "spyaman", notes: "this is for bitch buy" },
-  { id: 6, amount: 98, to: "aquaman", notes: "this is for ass buy" },
-  { id: 7, amount: 48, to: "aquaman", notes: "this is for ass buy" },
+paymentWriter.addRows([
+  { id: 8, amount: 40, to: "supaman", notes: "this is for pot buy" },
+  { id: 9, amount: 82, to: "spyaman", notes: "this is for bitch buy" },
+  { id: 10, amount: 98, to: "aquaman", notes: "this is for ass buy" },
+  { id: 11, amount: 48, to: "aquaman", notes: "this is for ass buy" },
 ]);
 
-// console.log("Writer Obj:", writer);
+empWriter.addRows([
+  { id: 8, name: "Grace", role: "Manager", salary: 2000 },
+  { id: 9, name: "Alice", role: "Manager", salary: 3000 },
+  { id: 10, name: "Bern", role: "Manager", salary: 5000 },
+  { id: 11, name: "Penny", role: "Manager", salary: 9000 },
+]);
 
-writer.save("./data/payments.csv");
+paymentWriter.save("./data/payments.csv");
+empWriter.save("./data/employees.csv");

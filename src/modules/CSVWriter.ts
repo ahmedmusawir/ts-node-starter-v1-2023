@@ -3,19 +3,10 @@
 //---------------------
 import { appendFileSync } from "fs";
 
-interface Payment {
-  id: number;
-  amount: number;
-  to: string;
-  notes: string;
-}
-
-type PaymentColumns = ("id" | "amount" | "to" | "notes")[];
-
-class CSVWriter {
+class CSVWriter<T> {
   private csv: string;
 
-  constructor(private columns: PaymentColumns) {
+  constructor(private columns: (keyof T)[]) {
     this.csv = "\n" + this.columns.join(",") + "\n";
     // console.log("CSV Class Instantiated... ", this.csv);
   }
@@ -27,7 +18,7 @@ class CSVWriter {
     console.log("File saved to: ", filename);
   }
 
-  addRows(values: Payment[]): void {
+  addRows(values: T[]): void {
     let rows = values.map((v) => this.formatRow(v));
 
     this.csv += rows.join("\n");
@@ -35,8 +26,8 @@ class CSVWriter {
     console.log(this.csv);
   }
 
-  private formatRow(p: Payment): string {
-    return this.columns.map((col) => p[col]).join(",");
+  private formatRow(value: T): string {
+    return this.columns.map((col) => value[col]).join(",");
   }
 }
 
