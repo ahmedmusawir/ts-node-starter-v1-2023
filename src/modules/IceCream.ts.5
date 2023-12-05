@@ -50,20 +50,7 @@ class IceCream extends MenuItem {
   };
 
   format(): string {
-    let formatted = this.details;
-
-    // base
-    formatted += `\n -- Icecream on a ${this.base} base`;
-
-    // toppings
-    if (this.toppings.length < 1) {
-      formatted += " with no toppings";
-    }
-    if (this.toppings.length > 0) {
-      formatted += ` with ${this.toppings.join(", ")}`;
-    }
-
-    return formatted;
+    return `This menu item is ${this.getTitle()} and the price is ${this.getPrice()}`;
   }
 }
 

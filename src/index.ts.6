@@ -1,0 +1,30 @@
+import IceCream, { HasFormatter } from "./modules/IceCream.js";
+
+const ice = new IceCream("Monday Special", 17.99);
+const ice2 = new IceCream("Sunday Special", 15.99);
+
+ice.selectBase("Vanilla");
+
+ice.addTopings("Nuts");
+ice.addTopings("Raisins");
+
+ice.removeToppings("Nuts");
+ice.addTopings("Syrup");
+
+const addBerryToIcecream = (ices: IceCream[]): void => {
+  for (const i of ices) {
+    i.addTopings("Berry");
+  }
+};
+
+addBerryToIcecream([ice, ice2]);
+
+// console.log(ice, ice2);
+// console.log("DETAILS", ice.details());
+// console.log("DETAILS", ice.details);
+
+const printFormatted = (val: HasFormatter): void => {
+  console.log(val.format());
+};
+
+printFormatted(ice2);
